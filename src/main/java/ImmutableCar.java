@@ -32,13 +32,21 @@ public final class ImmutableCar {
     }
 
     private final int number;
+
+    public Car getCar() throws CloneNotSupportedException {
+        Object clone = car.clone();
+        return (Car)clone;
+    }
+
+    private final Car car;
     private final String brand;
     private final int[] numberOfCars;
     private final Object[] objects;
     private final Date dateOfProduction;
 
-    public ImmutableCar(int number, String brand, int[] numberOfCars, Object[] objects, Date dateOfProduction) {
+    public ImmutableCar(int number, Car car, String brand, int[] numberOfCars, Object[] objects, Date dateOfProduction) {
         this.number = number;
+        this.car = car;
         this.brand = brand;
         this.numberOfCars = numberOfCars;
         this.objects = objects;
